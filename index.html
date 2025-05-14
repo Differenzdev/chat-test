@@ -30,63 +30,41 @@
 <script type='text/javascript' src='https://differenzsystem-6b-dev-ed.develop.my.site.com/ESWAgentForceWEBChat1746794036171/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
  -->
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Dummy Chat Test</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dummy Chat Test</title>
 </head>
-
 <body>
-
-  <h1>Dummy Third-Party Site</h1>
-
-  <p>This page tests the Salesforce Embedded Messaging widget.</p>
+<h1>Dummy Third-Party Site</h1>
+<p>This page tests the Salesforce Embedded Messaging widget.</p>
  
   <script type="text/javascript">
-
+    // Make sure the embeddedservice_bootstrap is loaded before calling the function
     function initEmbeddedMessaging() {
-
       try {
-
         embeddedservice_bootstrap.settings.language = 'en_US';
  
         embeddedservice_bootstrap.init(
-
-          '00DdM00000LtQnN', // Org ID
-
-          'AgentForce_WEB_Chat', // Embedded Service Deployment Name
-
-          'https://differenzsystem-6b-dev-ed.develop.my.site.com', // Salesforce site domain only
-
+          '00DdM00000LtQnN',  // Org ID
+          'AgentForce_WEB_Chat',  // Embedded Service Deployment Name
+          'https://differenzsystem-6b-dev-ed.develop.my.site.com',  // Salesforce site domain only
           {
-
             scrt2URL: 'https://differenzsystem-6b-dev-ed.develop.my.salesforce-scrt.com'
-
           }
-
         );
-
       } catch (err) {
-
         console.error('Error loading Embedded Messaging: ', err);
-
       }
-
     }
-
-  </script>
  
-  <script type="text/javascript" src="https://service.force.com/embeddedservice/5.0/esw.min.js" onload="initEmbeddedMessaging()"></script>
-
+    // Load the Salesforce Embedded Messaging library and initialize when loaded
+    var script = document.createElement('script');
+    script.src = "https://service.force.com/embeddedservice/5.0/esw.min.js";
+    script.onload = initEmbeddedMessaging;
+    document.body.appendChild(script);  // Dynamically load the script and run after it's loaded
+</script>
 </body>
-
 </html>
